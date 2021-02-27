@@ -1,82 +1,231 @@
 body {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
 }
 .container {
-  background-color: "#F7F7F7";
-  justify-content: center;
+    background-color: "#F7F7F7";
+    justify-content: center;
 
-  display: grid;
+    display: grid;
 }
 .wrapper-topbar {
-  width: 100%;
-  height: 70px;
-  /* background: red; */
-  justify-content: center;
-  border-bottom: 2px solid #ebebeb;
-  display: flex;
+    width: 100%;
+    height: 70px;
+    /* background: red; */
+    justify-content: center;
+    border-bottom: 2px solid #ebebeb;
+    display: flex;
 }
 .top-bar {
-  /* background: green; */
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  display: flex;
-  width: 1200px;
+    /* background: green; */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    width: 1200px;
 }
 .block-left {
-  justify-content: center;
-  align-items: center;
-  display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 .logo {
-  text-align: center;
-  font: italic normal bold 44px/70px Helvetica Neue;
-  color: #707070;
-  margin-right: 80px;
+    text-align: center;
+    font: italic normal bold 44px Helvetica Neue;
+    color: #707070;
+    margin-right: 80px;
 }
 .bar-logo {
-  position: absolute;
-  margin-left: 0;
-  margin-top: -3px;
-  width: 107px;
-  height: 7px;
-  border-radius: 6px;
-  background: #b5c401;
+    position: absolute;
+    margin-left: 0;
+    margin-top: 6px;
+    width: 107px;
+    height: 7px;
+    border-radius: 6px;
+    background: #b5c401;
 }
 .home {
-  text-align: center;
-  font: italic normal bold 20px/70px Helvetica Neue;
-  color: #707070;
+    text-align: center;
+    font: italic normal bold 20px Helvetica Neue;
+    color: #707070;
 }
 .block-right {
-  justify-content: center;
-  align-items: center;
-  display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 .account {
-  text-align: center;
-  font: italic normal bold 20px/70px Helvetica Neue;
-  color: #707070;
+    text-align: center;
+    font: italic normal bold 20px Helvetica Neue;
+    color: #707070;
 }
 .log-out {
-  text-align: center;
-  font: italic normal bold 20px/70px Helvetica Neue;
-  color: #707070;
-  margin-left: 80px;
+    text-align: center;
+    font: italic normal bold 20px Helvetica Neue;
+    color: #707070;
+    margin-left: 80px;
 }
 main {
-  width: 1200px;
-  background: cornflowerblue;
-  display: flex;
+    width: 1200px;
+    /* background: cornflowerblue; */
+    display: flex;
 }
 .content-left {
-  width: 65%;
-  background: chartreuse;
+    width: 65%;
+    /* background: chartreuse; */
 }
 .content-rigth {
-  width: 35%;
-  background: coral;
+    width: 35%;
+    background: coral;
+}
+.box-1 {
+    display: grid;
+}
+.block-titles-top {
+    display: grid;
+}
+.span-title-one {
+    color: #707070;
+    text-transform: uppercase;
+    font: italic normal 24px Helvetica Neue;
+    margin-top: 70px;
+}
+.patch {
+    color: #707070;
+    text-transform: uppercase;
+    font: italic normal bold 24px Helvetica Neue;
+}
+.span-title-two {
+    text-align: left;
+    font: italic normal bold 17px Helvetica Neue;
+    color: #868686;
+    margin-top: 30px;
+}
+.buttons-choose {
+    margin-top: 15px;
+}
+.choose-button-one {
+    width: 113px;
+    height: 34px;
+    border-radius: 30px;
+    border-width: 0;
+    border: 2px solid #7f3992;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 14px Helvetica Neue;
+    color: #7f3992;
+}
+.choose-button-two {
+    width: 113px;
+    height: 34px;
+    border-radius: 30px;
+    border-width: 0;
+    /* border: 2px solid #7f3992; */
+    background: #01ac66;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 14px Helvetica Neue;
+    /* color: #7f3992; */
+    color: #fff;
+}
+.choose-button-three {
+    width: 113px;
+    height: 34px;
+    border-radius: 30px;
+    border-width: 0;
+    border: 2px solid #f79c31;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 14px Helvetica Neue;
+    color: #f79c31;
+}
+.choose-button-one,
+.choose-button-two,
+.choose-button-three:focus {
+    outline: none;
+    box-shadow: none;
+}
+.box-2 p {
+    text-align: left;
+    font: italic normal 17px/24px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #868686;
+    margin-right: 50px;
+}
+.box-2 p span {
+    font: italic normal bold 17px/24px Helvetica Neue;
+    color: #868686;
+}
+.container-balls {
+    /* display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    justify-content: space-evenly; */
+
+    display: grid;
+    /* aqui eu determino é são 3 colunas de tamanhos iguas, cada coluna tem uma fração */
+    grid-template-columns: repeat(10, 1fr);
+    /* esssa é a altura das linhas, se vc quiser pode apaga-la caso não queira uma altura definida */
+    grid-auto-rows: 75px;
+    /* espaço entre um elemento interno e outro */
+    grid-gap: 5px 8px;
+    /* margem interna que afasta os elementos da borda do grid */
+    padding: 0 10px 10px 0;
+}
+.box-3 .container-balls .ball {
+    /* width: 60px;
+    height: 60px; */
+    background: #adc0c4;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.box-3 .container-balls .ball span {
+    font: normal normal bold 20px/24px Helvetica Neue;
+    color: #ffffff;
+}
+.buttons-options{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+.button-complete-game {
+    /* width: 113px; */
+    height: 52px;
+    border-radius: 10px;
+    border-width: 0;
+    border: 2px solid #27c383;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 16px Helvetica Neue;
+    color: #27c383;
+}
+.button-clear-game {
+    /* width: 113px; */
+    height: 52px;
+    border-radius: 10px;
+    border-width: 0;
+    border: 2px solid #27c383;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 16px Helvetica Neue;
+    color: #27c383;
+}
+.button-add-cart {
+    /* width: 113px; */
+    height: 52px;
+    border-radius: 10px;
+    border-width: 0;
+    /* border: 2px solid #7f3992; */
+    background: #01ac66;
+    cursor: pointer;
+    text-align: center;
+    font: italic normal bold 16px Helvetica Neue;
+    /* color: #7f3992; */
+    color: #fff;
 }
