@@ -122,13 +122,13 @@ main {
     height: 34px;
     border-radius: 30px;
     border-width: 0;
-    /* border: 2px solid #7f3992; */
-    background: #01ac66;
+    border: 2px solid #01ac66;
+    /* background: #01ac66; */
     cursor: pointer;
     text-align: center;
     font: italic normal bold 14px Helvetica Neue;
     /* color: #7f3992; */
-    color: #fff;
+    color: #01ac66;
 }
 .choose-button-three {
     width: 113px;
@@ -189,7 +189,7 @@ main {
     font: normal normal bold 20px/24px Helvetica Neue;
     color: #ffffff;
 }
-.buttons-options{
+.buttons-options {
     display: flex;
     justify-content: space-between;
     margin-right: 10px;
