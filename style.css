@@ -123,11 +123,9 @@ main {
     border-radius: 30px;
     border-width: 0;
     border: 2px solid #01ac66;
-    /* background: #01ac66; */
     cursor: pointer;
     text-align: center;
     font: italic normal bold 14px Helvetica Neue;
-    /* color: #7f3992; */
     color: #01ac66;
 }
 .choose-button-three {
@@ -141,6 +139,7 @@ main {
     font: italic normal bold 14px Helvetica Neue;
     color: #f79c31;
 }
+
 .choose-button-one,
 .choose-button-two,
 .choose-button-three:focus {
