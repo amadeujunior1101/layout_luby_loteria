@@ -2,6 +2,7 @@
     const ajax = new XMLHttpRequest();
     let $item = doc.querySelector('[active="true"]');
     let $itemAll = doc.querySelector(".buttons-choose");
+    let $containerBalls = doc.querySelector(".container-balls");
 
     let choosegame = "lotofacil";
 
@@ -95,7 +96,7 @@
                 let rules = JSON.parse(data);
                 const gameNumbers = rules[" numberBalls"][chooseGame];
                 // console.log(rules[" numberBalls"].lotofacil);
-                let $containerBalls = doc.querySelector(".container-balls");
+                // let $containerBalls = doc.querySelector(".container-balls");
                 $containerBalls.textContent = "";
                 let arrayTemp = [];
                 gameNumbers.map((number) => {
@@ -108,7 +109,27 @@
                             return arrayTemp.indexOf(item) === index;
                         });
                         // console.log(arrayTemp);
+                        // let t = []
+                        // if (chooseGame === "lotofacil") return t = arrayLotofacil
+                        // if (chooseGame === "mega-sena") return t = arrayMegasena
+                        // if (chooseGame === "lotomania") return t = arrayLotomania
+                        arrayLotofacil.forEach((el, index) => {
+                            console.log("Foreach lotofacil", el);
+                            let i = $containerBalls
+                                .getElementsByTagName("div")
+                                .item(el - 1);
+                            console.log(i);
+                            i.setAttribute(
+                                "style",
+                                "border: 2px solid #7f3992;"
+                            );
+                        });
+
                         if (chooseGame === "lotofacil") {
+                            $div.setAttribute(
+                                "style",
+                                "border: 2px solid #7f3992"
+                            );
                             let arr = [];
                             arr.push(...newArr, ...arrayLotofacil);
                             let r = arr.filter(function (item, index) {
@@ -116,6 +137,11 @@
                             });
                             arrayLotofacil = r;
                         } else if (chooseGame === "mega-sena") {
+                            $div.setAttribute(
+                                "style",
+                                "border: 2px solid #01ac66"
+                            );
+
                             let arr = [];
                             arr.push(...newArr, ...arrayMegasena);
                             let r = arr.filter(function (item, index) {
@@ -123,6 +149,10 @@
                             });
                             arrayMegasena = r;
                         } else if (chooseGame === "lotomania") {
+                            $div.setAttribute(
+                                "style",
+                                "border: 2px solid #f79c31"
+                            );
                             let arr = [];
                             arr.push(...newArr, ...arrayLotomania);
                             let r = arr.filter(function (item, index) {
@@ -159,11 +189,25 @@
 
         if (item.className === "choose-button-one") {
             activeDefault.setAttribute("style", styleActiveButtonLotofacil);
+            /* arrayLotofacil.forEach((el, index) => {
+                console.log("Foreach lotofacil", el);
+                //   return console.log("element: ", el, "=>",  $div)
+                // return item.setAttribute("style", "border: 2px solid #7f3992");
+                let i = $containerBalls
+                    .getElementsByTagName("div")
+                    .item(el - 1);
+                console.log(i);
+                i.setAttribute("style", "border: 2px solid #7f3992;");
+               
+            });*/
+            // console.log($containerBalls.getElementsByTagName("div").item(0));
         } else if (item.className === "choose-button-two") {
             activeDefault.setAttribute("style", styleActiveButtonMegasena);
-            activeDefault.setAttribute("style", styleActiveButtonMegasena);
+            // console.log($containerBalls);
+            // activeDefault.setAttribute("style", styleActiveButtonMegasena);
         } else if (item.className === "choose-button-three") {
             activeDefault.setAttribute("style", styleActiveButtonLotomania);
+            // console.log($containerBalls);
         }
     }
     init();
