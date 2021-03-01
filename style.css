@@ -78,7 +78,7 @@ main {
 }
 .content-rigth {
     width: 35%;
-    background: coral;
+    /* background: coral; */
 }
 .box-1 {
     display: grid;
@@ -116,6 +116,7 @@ main {
     text-align: center;
     font: italic normal bold 14px Helvetica Neue;
     color: #7f3992;
+    margin-right: 20px;
 }
 .choose-button-two {
     width: 113px;
@@ -127,6 +128,7 @@ main {
     text-align: center;
     font: italic normal bold 14px Helvetica Neue;
     color: #01ac66;
+    margin-right: 20px;
 }
 .choose-button-three {
     width: 113px;
@@ -138,6 +140,7 @@ main {
     text-align: center;
     font: italic normal bold 14px Helvetica Neue;
     color: #f79c31;
+    margin-right: 20px;
 }
 
 .choose-button-one,
@@ -172,6 +175,8 @@ main {
     grid-gap: 5px 8px;
     /* margem interna que afasta os elementos da borda do grid */
     padding: 0 10px 10px 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 .box-3 .container-balls .ball {
     /* width: 60px;
@@ -227,4 +232,97 @@ main {
     font: italic normal bold 16px Helvetica Neue;
     /* color: #7f3992; */
     color: #fff;
+}
+.content-rigth {
+    /* padding: 5px; */
+}
+.card-base {
+    border-radius: 10px 10px 0 0;
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    margin: 40px 10px auto 10px;
+    padding: 15px;
+}
+.title-card {
+    text-align: left;
+    font: italic normal bold 24px Helvetica Neue;
+    color: #707070;
+    text-transform: uppercase;
+}
+.list-games {
+    display: flex;
+    margin-top: 35px;
+}
+.game-icon {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 50px;
+}
+.list-divisor {
+    width: 5px;
+    height: auto;
+    background: #7f3992;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* border-right: 5px solid #7f3992; */
+}
+.game-description {
+    margin: 10px 5px 10px 10px;
+    display: grid;
+}
+.game-description .number-list {
+    text-align: left;
+    font: italic bold 18px Helvetica Neue;
+    color: #868686;
+    /* margin-top: 10px auto; */
+}
+.game-description span {
+    text-align: left;
+    font: italic normal bold 20px Helvetica Neue;
+    color: #7f3992;
+    /* margin-bottom: 10px; */
+}
+.cart-total span {
+    font: italic normal bold 24px/85px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #707070;
+    text-transform: uppercase;
+}
+.cart-total .value-total {
+    text-align: left;
+    font: normal normal 300 24px/85px Helvetica Neue;
+    color: #707070;
+}
+.save-button {
+    width: auto;
+    height: 95px;
+    background: #f4f4f4 0% 0%;
+    border: 1px solid #e2e2e2;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 10px auto 10px;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+}
+.save-button span {
+    text-align: center;
+    font: italic normal bold 35px/70px Helvetica Neue;
+    color: #27c383;
+}
+.footer {
+    width: 100%;
+    height: 70px;
+    /* background: red; */
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #ebebeb;
+    display: flex;
+    margin-top: 150px;
+}
+.footer .text-footer {
+    text-align: center;
+    font: normal 15px Helvetica Neue;
+    color: #707070;
 }
