@@ -1,10 +1,14 @@
 (function (doc) {
     const ajax = new XMLHttpRequest();
     let $item = doc.querySelector('[active="true"]');
+
     // let $itemAll2 = doc.querySelector(".buttons-choose");
     // console.log($itemAll2);
     let $itemAll = doc.querySelector(".buttons-choose");
     let $containerBalls = doc.querySelector(".container-balls");
+    let $buttonCompleteGame = doc.querySelector(".button-complete-game");
+
+    let chooseButtonCurrent = "";
 
     let choosegame = "lotofacil";
 
@@ -45,7 +49,8 @@
     $itemAll.addEventListener(
         "click",
         function modifyActiveButtonChoose(event) {
-           
+            chooseButtonCurrent = event.target;
+
             let $itemLotofacil = doc.querySelector(".choose-button-one");
             let $itemMegasena = doc.querySelector(".choose-button-two");
             let $itemLotomania = doc.querySelector(".choose-button-three");
@@ -57,9 +62,9 @@
             $itemLotofacil.attributes.active.textContent = "false";
             $itemMegasena.attributes.active.textContent = "false";
             $itemLotomania.attributes.active.textContent = "false";
-      
-                event.target.attributes.active.textContent = "true";
-         
+
+            event.target.attributes.active.textContent = "true";
+
             // console.log(event.target.id);
             loadNumbersGameLotofacil(event.target.id);
             return activeDefaultChoose(event.target);
@@ -72,6 +77,7 @@
         ajax.addEventListener(
             "readystatechange",
             function load() {
+                
                 ajax.onload = "";
                 if (!isReady.call()) return;
                 const data = ajax.response;
@@ -170,6 +176,7 @@
                         console.log("loto fácil", arrayLotofacil);
                         console.log("mega-sena", arrayMegasena);
                         console.log("lotomania", arrayLotomania);
+                        // showListGames();
                     });
 
                     $span.textContent = number;
@@ -236,6 +243,59 @@
             activeDefault.setAttribute("style", styleActiveButtonLotomania);
             // console.log($containerBalls);
         }
+    }
+
+    $buttonCompleteGame.addEventListener("click", function completeGame() {
+        // return console.log(chooseButtonCurrent)
+        let optionDefaultButtonActive;
+        if (chooseButtonCurrent === "" || chooseButtonCurrent === "lotofacil") {
+            optionDefaultButtonActive = "lotofacil";
+            arrayLotofacil = [];
+            for (let index = 1; arrayLotofacil.length < 15; index++) {
+                let number = Math.floor(Math.random() * 25 + 1);
+                const found = arrayLotofacil.find((element) => element === number);
+                if (!found) {
+                    arrayLotofacil.push(number);
+                }
+                console.log(arrayLotofacil);
+            }
+        } else if (chooseButtonCurrent.id === "mega-sena") {
+            optionDefaultButtonActive = "mega-sena";
+            arrayMegasena = [];
+            for (let index = 1; arrayMegasena.length < 6; index++) {
+                let number = Math.floor(Math.random() * 60 + 1);
+                const found = arrayMegasena.find((element) => element === number);
+                if (!found) {
+                    arrayMegasena.push(number);
+                }
+                console.log(arrayMegasena);
+            }
+        } else if (chooseButtonCurrent.id === "lotomania") {
+            optionDefaultButtonActive = "lotomania";
+            arrayLotomania = [];
+            for (let index = 1; arrayLotomania.length < 20; index++) {
+                let number = Math.floor(Math.random() * 50 + 1);
+                const found = arrayLotomania.find((element) => element === number);
+                if (!found) {
+                    arrayLotomania.push(number);
+                }
+                console.log(arrayLotomania);
+            }
+        }
+        // else {
+        //     optionDefaultButtonActive = chooseButtonCurrent.id;
+        // }
+
+        loadNumbersGameLotofacil(optionDefaultButtonActive);
+        showListGames();
+    });
+    function showListGames() {
+        let $listNumbersLotofacil = doc.querySelector(".number-list-lotofacil");
+        $listNumbersLotofacil.innerHTML = arrayLotofacil;
+        let $listNumbersMegasena = doc.querySelector(".number-list-megasena");
+        $listNumbersMegasena.innerHTML = arrayMegasena;
+        let $listNumbersLotomania = doc.querySelector(".number-list-lotomania");
+        $listNumbersLotomania.innerHTML = arrayLotomania;
     }
     init();
 })(document);

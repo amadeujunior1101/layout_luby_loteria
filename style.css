@@ -240,7 +240,7 @@ main {
     border-radius: 10px 10px 0 0;
     background: #fff;
     border: 1px solid #e2e2e2;
-    margin: 40px 10px auto 10px;
+    margin: 40px 0 auto 10px;
     padding: 15px;
 }
 .title-card {
@@ -259,7 +259,7 @@ main {
     display: flex;
     width: 50px;
 }
-.list-divisor {
+.list-divisor-lotofacil {
     width: 5px;
     height: auto;
     background: #7f3992;
@@ -270,19 +270,48 @@ main {
 .game-description {
     margin: 10px 5px 10px 10px;
     display: grid;
+    width: 280px;
+    word-wrap: break-word;
 }
-.game-description .number-list {
+.game-description .number-list-lotofacil,
+.number-list-megasena,
+.number-list-lotomania {
     text-align: left;
     font: italic bold 18px Helvetica Neue;
     color: #868686;
+    width: 280px;
     /* margin-top: 10px auto; */
 }
-.game-description span {
+.list-divisor-megasena {
+    width: 5px;
+    height: auto;
+    background: #01ac66;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* border-right: 5px solid #7f3992; */
+}
+.game-description .span-lotofacil {
+    color: #7f3992;
+}
+.game-description .span-megasena {
+    color: #01ac66;
+}
+.list-divisor-lotomania {
+    width: 5px;
+    height: auto;
+    background: #f79c31;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* border-right: 5px solid #7f3992; */
+}
+.span-lotomania {
+    color: #f79c31;
+}
+/* .game-description span {
     text-align: left;
     font: italic normal bold 20px Helvetica Neue;
     color: #7f3992;
-    /* margin-bottom: 10px; */
-}
+} */
 .cart-total span {
     font: italic normal bold 24px/85px Helvetica Neue;
     letter-spacing: 0px;
@@ -302,7 +331,7 @@ main {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin: 0 10px auto 10px;
+    margin: 0 0 auto 10px;
     padding: 15px;
     border-radius: 0 0 10px 10px;
 }
