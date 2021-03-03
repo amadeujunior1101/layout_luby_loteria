@@ -248,10 +248,15 @@ main {
     font: italic normal bold 24px Helvetica Neue;
     color: #707070;
     text-transform: uppercase;
+    /* display: none; */
 }
 .list-games {
     display: flex;
     margin-top: 35px;
+}
+.fa-trash-alt {
+    color: #888888;
+    cursor: pointer;
 }
 .game-icon {
     justify-content: center;
@@ -319,6 +324,11 @@ main {
     text-transform: uppercase;
 }
 .cart-total .value-total {
+    text-align: left;
+    font: normal normal 300 24px/85px Helvetica Neue;
+    color: #707070;
+}
+.cart-total .span-value-total {
     text-align: left;
     font: normal normal 300 24px/85px Helvetica Neue;
     color: #707070;
