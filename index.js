@@ -52,9 +52,9 @@
         loadNumbersGames(choosegame);
         getPrices();
     }
-
-    for (let i = 0; i < $itemAll.children.length; i++) {
-        $itemAll.children[i].addEventListener(
+    let elementItemAll = 0;
+    while (elementItemAll < $itemAll.children.length) {
+        $itemAll.children[elementItemAll].addEventListener(
             "click",
             function modifyActiveButtonChoose(event) {
                 chooseButtonCurrent = event.target;
@@ -78,6 +78,7 @@
             },
             false
         );
+        elementItemAll++;
     }
 
     function loadNumbersGames(chooseGame) {
@@ -112,7 +113,7 @@
                         "click",
                         function selectBall() {
                             arrayTemp.push($div.id);
-                            var newArr = arrayTemp.filter(function (item, index) {
+                            let newArr = arrayTemp.filter(function (item, index) {
                                 return arrayTemp.indexOf(item) === index;
                             });
 
@@ -170,8 +171,6 @@
                                     arrayLotomania = arrayTemp;
                                 }
                             }
-                            // addToCart();
-                            // alterArrays(chooseGame, newArr, div);
                         },
                         false
                     );
@@ -200,7 +199,6 @@
                         i.setAttribute("style", "border: 2px solid #f79c31;");
                     });
                 }
-                // sumCart();
             },
             false
         );
@@ -211,9 +209,6 @@
     }
     function activeDefaultChoose(item) {
         let activeDefault = item;
-        // console.log("loto fácil", arrayLotofacil);
-        // console.log("mega-sena", arrayMegasena);
-        // console.log("lotomania", arrayLotomania);
 
         if (item.className === "choose-button-one") {
             activeDefault.setAttribute("style", styleActiveButtonLotofacil);
@@ -234,50 +229,32 @@
                 const found = arrayLotofacil.some((element) => element == number);
 
                 if (!found) {
-                    let newNumber = "";
-
-                    number < 10
-                        ? (newNumber = `${"0" + String(number)}`)
-                        : (newNumber = String(number));
-                    arrayLotofacil.push(newNumber);
+                    arrayLotofacil.push(number < 10 ? `${"0" + String(number)}` : String(number));
                 }
             }
         } else if (chooseButtonCurrent.id === "mega-sena") {
             optionDefaultButtonActive = "mega-sena";
             arrayMegasena = [];
-            for (let index = 1; arrayMegasena.length < 6; index++) {
+            while (arrayMegasena.length < 6) {
                 let number = Math.floor(Math.random() * 60 + 1);
                 const found = arrayMegasena.some((element) => element === number);
                 if (!found) {
-                    let newNumber = "";
-
-                    number < 10
-                        ? (newNumber = `${"0" + String(number)}`)
-                        : (newNumber = String(number));
-
-                    arrayMegasena.push(newNumber);
+                    arrayMegasena.push(number < 10 ? `${"0" + String(number)}` : String(number));
                 }
             }
         } else if (chooseButtonCurrent.id === "lotomania") {
             optionDefaultButtonActive = "lotomania";
             arrayLotomania = [];
-            for (let index = 1; arrayLotomania.length < 20; index++) {
+            while (arrayLotomania.length < 20) {
                 let number = Math.floor(Math.random() * 50 + 1);
                 const found = arrayLotomania.some((element) => element === number);
                 if (!found) {
-                    let newNumber = "";
-
-                    number < 10
-                        ? (newNumber = `${"0" + String(number)}`)
-                        : (newNumber = String(number));
-
-                    arrayLotomania.push(newNumber);
+                    arrayLotomania.push(number < 10 ? `${"0" + String(number)}` : String(number));
                 }
             }
         }
 
         loadNumbersGames(optionDefaultButtonActive);
-        // addToCart();
     });
 
     $buttonClearGame.addEventListener("click", function clearGame() {
@@ -297,42 +274,37 @@
         addToCart();
     });
 
-    for (let i = 0; i < $iconRemove.length; i++) {
-        $iconRemove[i].addEventListener("click", function clearGame() {
+    for (let elementIconRemove = 0; elementIconRemove < 3; elementIconRemove++) {
+        console.log('iconRemove', $iconRemove)
+        $iconRemove[elementIconRemove].addEventListener("click", function clearGame() {
             let optionDefaultButtonActive = $iconRemove[
-                i
+                elementIconRemove
             ].parentNode.firstElementChild.children[0].className.split(" ", 3)[2];
 
             if (
-                $iconRemove[i].parentNode.firstElementChild.children[0].className ===
-                    "fas fa-trash-alt lotofacil" &&
+                $iconRemove[elementIconRemove].parentNode.firstElementChild.children[0]
+                    .className === "fas fa-trash-alt lotofacil" &&
                 arrayLotofacil.length > 0
             ) {
                 arrayLotofacil = [];
-                // $itemAll.children[0].setAttribute("style", styleActiveButtonLotofacil);
-                // $itemAll.children[0].attributes.active.textContent = "true"
-                // console.log($itemAll.children[0].attributes.active);
-                // event.target.attributes.active.textContent = "true";
                 loadNumbersGames(optionDefaultButtonActive);
                 addToCart();
             }
             if (
-                $iconRemove[i].parentNode.firstElementChild.children[0].className ===
-                    "fas fa-trash-alt mega-sena" &&
+                $iconRemove[elementIconRemove].parentNode.firstElementChild.children[0]
+                    .className === "fas fa-trash-alt mega-sena" &&
                 arrayMegasena.length > 0
             ) {
                 arrayMegasena = [];
-                // console.log($itemAll.children[1].attributes.active.textContent = "true");
                 loadNumbersGames(optionDefaultButtonActive);
                 addToCart();
             }
             if (
-                $iconRemove[i].parentNode.firstElementChild.children[0].className ===
-                    "fas fa-trash-alt lotomania" &&
+                $iconRemove[elementIconRemove].parentNode.firstElementChild.children[0]
+                    .className === "fas fa-trash-alt lotomania" &&
                 arrayLotomania.length > 0
             ) {
                 arrayLotomania = [];
-                // console.log($itemAll.children[2].attributes.active.textContent = "true");
                 loadNumbersGames(optionDefaultButtonActive);
                 addToCart();
             }
@@ -344,7 +316,6 @@
     });
 
     function addToCart() {
-        // console.log($iconRemove[0]);
         let $listNumbersLotofacil = doc.querySelector(".number-list-lotofacil");
         $listNumbersLotofacil.innerHTML = arrayLotofacil;
         let $listNumbersMegasena = doc.querySelector(".number-list-megasena");
@@ -377,7 +348,6 @@
             if (!isReady.call()) return;
             const data = ajax.response;
             let prices = JSON.parse(data);
-            // console.log(prices.price[0].lotofacil);
 
             priceGameLotofacil = prices.price[0].lotofacil;
             priceGameMegasena = prices.price[1]["mega-sena"];
